@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "jotit",
+  "productName": "tome",
   "version": "0.1.0",
-  "identifier": "com.jotit.app",
+  "identifier": "com.tome.app",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "jotit",
+        "title": "Tome",
         "width": 800,
         "height": 600
       }
@@ -25,10 +25,8 @@
     "active": true,
     "targets": "all",
     "icon": [
-      "icons/32x32.png",
-      "icons/128x128.png",
-      "icons/128x128@2x.png",
-      "icons/icon.icns",
+      "icons/32x32.svg",
+      "icons/128x128.svg",
       "icons/icon.ico"
     ]
   }
