@@ -1,8 +1,12 @@
-export function CreateNoteBookForm() {
-    return (
-        <div>
-            <div className="formContainer">
-                <button className="tertiaryButton">⟵ Back</button>
+import "../Forms.css";
+import {Component} from "react";
+
+export class CreateForm extends Component<{ onBack: any }> {
+    render() {
+        let {onBack} = this.props;
+        return (
+            <>
+                <button className="tertiaryButton" onClick={onBack}>⟵ Back</button>
                 <div className="formRow">
                     <p className="formTitle">
                         Create local tome
@@ -24,7 +28,7 @@ export function CreateNoteBookForm() {
                             <p className="formLabel">Tome Name</p>
                             <p className="subtext">Chose a name for your Tome</p>
                         </label>
-                        <input className="formInput" placeholder="Tome Name">
+                        <input className="formInput formRA" placeholder="Tome Name">
                         </input>
                     </div>
 
@@ -35,19 +39,19 @@ export function CreateNoteBookForm() {
                             <p className="formLabel">Browse</p>
                             <p className="subtext">Chose a save location for your new tome</p>
                         </label>
-                        <button className="formInput secondaryButton">Browse</button>
+                        <button className="secondaryButton formRA formButton">Browse</button>
                     </div>
                     <div className="centerPrimaryButton">
-                        <button className="primaryButton">Create</button>
+                        <button className="primaryButton formButton">Create</button>
                     </div>
                 </form>
-            </div>
 
 
-        </div>
+            </>
 
 
-    )
+        )
+    }
 }
 
-export default CreateNoteBookForm;
+export default CreateForm;

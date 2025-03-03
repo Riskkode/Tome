@@ -1,10 +1,8 @@
-
 import "./App.css";
-import "./components/common/form/CreateNoteBookForm.css";
-import "./components/common/form/CreateNoteBookForm.tsx";
 import "./components/buttons/buttonStyle.css"
-import CreateNotebookForm from "./components/common/form/CreateNoteBookForm.tsx";
-import TomeLogo from "./components/common/logo/TomeLogo.tsx";
+import TomeManager from "./components/pages/TomeManager/tomeManager.tsx";
+
+
 
 function App() {
   // async function greet() {
@@ -14,8 +12,9 @@ function App() {
 
   return (
       <main className="container">
-          <TomeLogo/>
-          <CreateNotebookForm/>
+          <div>
+              <TomeManager />
+          </div>
       </main>
   );
 }
