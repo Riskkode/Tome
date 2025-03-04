@@ -1,0 +1,81 @@
+
+.subtext {
+    font-size: 0.8em;
+    opacity: 0.75;
+    margin: 0;
+}
+.formRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.formInput{
+    height: 1em;
+    width:  8em;
+}
+
+.formButton {
+    width: 8em;
+}
+
+.formRA {
+    margin-left: auto;
+}
+
+.tome {
+    font-family: serif;
+    line-height: 10px;
+}
+
+.formLabel {
+    font-size: 1em;
+    margin: 0;
+}
+
+.formDivider {
+    border: 0;
+    border-top: 1px solid #2f2f2f; /* Change thickness and color */
+    margin: 8px 0; /* Adjust margin if needed */
+}
+
+.formTitle {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.centerPrimaryButton {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+.formContainer {
+    margin: 5vh;
+    justify-content: left;
+    flex-direction: column;
+    text-align: left;
+    position: relative;
+}
+
+.form {
+    position: absolute;
+    width: 100%;
+    transition: transform 0.2s ease-in-out;
+    background: #202020;
+}
+
+
+.form.slide-in {
+    transform: translateX(0);
+    z-index: 1;
+    pointer-events: auto;
+}
+
+.form.slide-out {
+    transform: translateX(-120%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+

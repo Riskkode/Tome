@@ -1,0 +1,30 @@
+.listItem {
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    margin-bottom: 4px;
+
+}
+
+.listItem:hover {
+    color: #ffffff;
+}
+
+.librarySidebar {
+    padding: 4px;
+    justify-content: left;
+    flex-direction: column;
+    text-align: left;
+    mso-padding-between: 4px;
+}
+
+.listDetails {
+    z-index: 1;
+}
+
+.listItem .formItemTooltip {
+    background-color: #000000;
+    border-radius: 8px;
+    z-index: 1;
+
+}
