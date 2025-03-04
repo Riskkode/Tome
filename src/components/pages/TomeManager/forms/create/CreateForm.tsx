@@ -1,20 +1,42 @@
 import "../Forms.css";
 import { invoke } from "@tauri-apps/api/core";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const CreateForm = ({ onBack }: { onBack: any }) => {
     const [targetPath, setTargetPath] = useState("");
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    const formRef = useRef<HTMLFormElement>(null);
+
 
     const handleBrowseButtonClick = () => {
+        setIsButtonDisabled(true);
         // @ts-ignore
         invoke("get_folder_location").then((path: string) => {
+            if (!path) {
+                setIsButtonDisabled(false);
+                return;
+            }
             setTargetPath(path);
+            setIsButtonDisabled(false);
         });
     };
 
+    const clearState = () => {
+        setTargetPath("");
+        setIsButtonDisabled(false);
+    };
+
+    const handleBackButtonClick = () => {
+        if (formRef.current) {
+            formRef.current.reset();
+        }
+        clearState();
+        onBack();
+    }
+
     return (
         <>
-            <button className="tertiaryButton" onClick={onBack}>⟵ Back</button>
+            <button className="tertiaryButton" onClick={handleBackButtonClick}>⟵ Back</button>
             <div className="formRow">
                 <p className="formTitle">
                     Create local tome
@@ -24,8 +46,13 @@ const CreateForm = ({ onBack }: { onBack: any }) => {
             <hr className="formDivider" />
 
             <form
+                ref={formRef}
                 onSubmit={(e) => {
                     e.preventDefault();
+                    if (formRef.current) {
+                        formRef.current.reset();
+                    }
+                    clearState();
                 }}
             >
                 <div className="formRow">
@@ -47,10 +74,10 @@ const CreateForm = ({ onBack }: { onBack: any }) => {
                         )}
 
                     </label>
-                    <button type="button" className="secondaryButton formRA formButton" onClick={handleBrowseButtonClick}>Browse</button>
+                    <button type="button" className="secondaryButton formRA formButton" disabled={isButtonDisabled} onClick={handleBrowseButtonClick}>Browse</button>
                 </div>
                 <div className="centerPrimaryButton">
-                    <button className="primaryButton formButton">Create</button>
+                    <button type="submit" className="primaryButton formButton" disabled={isButtonDisabled}>Create</button>
                 </div>
             </form>
         </>
