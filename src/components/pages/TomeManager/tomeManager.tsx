@@ -3,7 +3,7 @@ import CreateForm from "./forms/create/CreateForm.tsx";
 import LibrarySidebar from "../../common/sidebars/library/LibrarySidebar.tsx";
 import HomeForm from "./forms/home/ManagerHome.tsx";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 import "./TomeManager.css";
 
@@ -18,12 +18,6 @@ function tomeManager() {
     const handleBackButtonClick = () => {
         setShowCreateForm(false);
     }
-
-
-
-
-
-
 
     return (
         <>
